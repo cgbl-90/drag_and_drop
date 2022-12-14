@@ -1,0 +1,25 @@
+{
+  "name": "drag_and_drop",
+  "version": "1.0.0",
+  "description": "This is a puzzle game developed in Javascript. Main feature - drag and drop pictures",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgbl-90/drag_and_drop.git"
+  },
+  "keywords": [
+    "game",
+    "puzzle",
+    "javascript",
+    "js"
+  ],
+  "author": "Carmen Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgbl-90/drag_and_drop/issues"
+  },
+  "homepage": "https://github.com/cgbl-90/drag_and_drop#readme"
+}

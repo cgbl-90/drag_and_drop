@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Puzzle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h3>.Image puzzle.</h3>
+        <h3>.Javascript.</h3>
+    </header>
+    <main>
+        <div class="box">
+            <div>
+                <label class="btn">
+                    <input type="file" id="file" name="file" title=" ">
+                    Choose file
+                </label>
+                <br /><br />
+                <h3>OR</h3>
+                <br />
+                <button class="btn">Take a selfie!</button>
+            </div>
+            <div>
+                <label for="difficulty">Difficulty</label>
+                <br /><br />
+                <input type="range" min="1" max="4" value="1" id="difficulty" />
+            </div>
+            <div>
+                <button class="btn">Create puzzle!</button>
+            </div>
+            <div>
+                <h1>00:00</h1>
+            </div>
+        </div>
+        <canvas id="canvas"></canvas>
+    </main>
+    <footer>
+        <h3><a target="_blank" href="https://github.com/cgbl-90/pwd-generator">Open source code</a> by <a
+                target="_blank" href="https://github.com/cgbl-90/pwd-generator">Carmen López</a></h3>
+    </footer>
+    <script>
+    </script>
+</body>
+
+</html>
