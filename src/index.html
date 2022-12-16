@@ -27,28 +27,27 @@
                 <br /><br />
                 <h3>OR</h3>
                 <br />
-                <button class="btn">Take a selfie!</button>
+                <button class="btn" id="selfie">Take a selfie!</button>
             </div>
             <div>
                 <label for="difficulty">Difficulty</label>
                 <br /><br />
-                <input type="range" min="1" max="4" value="1" id="difficulty" />
+                <input id="difficulty" type="range" min="1" max="4" value="1" />
             </div>
             <div>
-                <button class="btn">Create puzzle!</button>
-            </div>
-            <div>
-                <h1>00:00</h1>
+                <button id="generate" class="btn">Create puzzle!</button>
             </div>
         </div>
-        <canvas id="canvas"></canvas>
+        <div class="box">
+            <img id="photo"/>
+            <video id="video"></video>
+        </div>
     </main>
     <footer>
         <h3><a target="_blank" href="https://github.com/cgbl-90/pwd-generator">Open source code</a> by <a
                 target="_blank" href="https://github.com/cgbl-90/pwd-generator">Carmen López</a></h3>
     </footer>
-    <script>
-    </script>
+    <script src="script.js"> </script>
 </body>
 
 </html>

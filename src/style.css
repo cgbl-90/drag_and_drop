@@ -37,6 +37,7 @@ footer {
 
 main {
     height: 70vh;
+    justify-content: center;
 }
 
 div {
@@ -63,11 +64,24 @@ input[type='file'] {
     background-color: #042c05;
 }
 
-.box,
-canvas {
+.box {
     border: 2px solid #096d0d;
     border-radius: 20px;
     min-width: 200px;
+    margin: 5px;
+    height: 68vh;
+}
+
+.box:last-child {
+    width: 600px;
+}
+
+video {
+    border: 1px solid grey;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 110px;
 }
 
 input[type='range'] {
