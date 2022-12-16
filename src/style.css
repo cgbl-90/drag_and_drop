@@ -76,12 +76,14 @@ input[type='file'] {
     width: 600px;
 }
 
-video {
-    border: 1px solid grey;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    bottom: 110px;
+canvas {
+    width: 80px;
+    height: 80px;
+}
+
+img{
+    width: auto;
+    max-height: 65vh;
 }
 
 input[type='range'] {

@@ -5,29 +5,48 @@ let btnGeneratePuzzle = document.getElementById("generate");
 let iptDifficulty = document.getElementById("difficulty");
 
 let btnSelfie = document.getElementById("selfie");
-let myVideo = document.getElementById("video");
 let myPhoto = document.getElementById("photo");
 var imageCapture = null;
 
-/// Set config for all navigators
-
-navigator.mediaDevices.getUserMedia =
-  navigator.mediaDevices.getUserMedia ||
-  navigator.mediaDevices.webkitGetUserMedia ||
-  navigator.mediaDevices.mozGetUserMedia ||
-  navigator.mediaDevices.msGetUserMedia;
-
 /// Init video stream
 
-function initVideoStream() {
+// LoadImage
+btnFile.addEventListener("change", loadPicture);
+function loadPicture(evt) {
+  var tgt = evt.target;
+  files = tgt.files;
+  if (FileReader && files && files.length) {
+    var fr = new FileReader();
+    fr.onload = () => (myPhoto.src = fr.result);
+    fr.readAsDataURL(files[0]);
+  }
+}
+
+/// VIDEO
+
+let VIDEO = null;
+let CANVAS = null;
+let CONTEXT = null;
+
+function initStream() {
+  CANVAS = document.getElementById("video");
+  CONTEXT = CANVAS.getContext("2d");
+
   let promise = navigator.mediaDevices.getUserMedia({ video: true });
 
   promise
     .then((blob) => {
-      myVideo.src = window.URL.createObjectURL(blob);
-      myVideo.play();
+      VIDEO = document.createElement("VIDEO");
+      VIDEO.srcObject = blob;
+      VIDEO.play();
+      VIDEO.onloadeddata(() => updateCanvas);
     })
-    .catch((error) => console.log("Error: " + error));
+    .catch((err) => console.log(err));
 }
 
-initVideoStream();
+function updateCanvas() {
+  CONTEXT.drawImage(VIDEO, 0, 0);
+  setInterval(updateCanvas, 1000);
+}
+
+initStream();
