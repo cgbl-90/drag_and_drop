@@ -3,62 +3,50 @@
 let btnFile = document.getElementById("file");
 let btnGeneratePuzzle = document.getElementById("generate");
 let iptDifficulty = document.getElementById("difficulty");
-
 let btnSelfie = document.getElementById("selfie");
-let myPhoto = document.getElementById("photo");
-var imageCapture = null;
+let VIDEO = document.querySelector("video");
+let CANVAS = document.querySelector("canvas");
+let CONTEXT = CANVAS.getContext("2d");
 
-/// Init video stream
+// IMAGE
+btnFile.addEventListener("change", loadImage);
 
-// LoadImage
-btnFile.addEventListener("change", loadPicture);
-function loadPicture(evt) {
-  var tgt = evt.target;
-  files = tgt.files;
-  if (FileReader && files && files.length) {
-    var fr = new FileReader();
-    fr.onload = () => (myPhoto.src = fr.result);
-    fr.readAsDataURL(files[0]);
-  }
+function loadImage() {
+  CANVAS.renderImage(btnFile.files[0]);
 }
+
+HTMLCanvasElement.prototype.renderImage = (blob) => {
+  var img = new Image();
+  img.onload = () =>
+    CONTEXT.drawImage(img, 10, 10, CANVAS.width - 20, CANVAS.height - 20);
+  img.src = window.URL.createObjectURL(blob);
+};
 
 /// VIDEO
 
-let VIDEO = null;
-let CANVAS = null;
-let CONTEXT = null;
+btnSelfie.addEventListener("click", () => {
+  let stream = navigator.mediaDevices.getUserMedia({ video: true });
 
-function initStream() {
-  CANVAS = document.getElementById("video");
-  CONTEXT = CANVAS.getContext("2d");
-
-  let promise = navigator.mediaDevices.getUserMedia({ video: true });
-
-  promise
-    .then((blob) => {
-      VIDEO = document.createElement("VIDEO");
-      VIDEO.srcObject = blob;
-      VIDEO.play();
-      VIDEO.onloadeddata(() => updateCanvas);
-    })
+  stream
+    .then((blob) => (VIDEO.srcObject = blob))
     .catch((err) => console.log(err));
-}
+  
+  VIDEO.toBlob() = (blob) => {
+    var img = new Image();
+    img.onload = () => CONTEXT.drawImage(img, 10, 10, CANVAS.width - 20, CANVAS.height - 20);
+    img.src = window.URL.createObjectURL(blob);
+  }
 
-function updateCanvas() {
-  CONTEXT.drawImage(VIDEO, 0, 0);
-  setInterval(updateCanvas, 1000);
-}
-
-initStream();
+});
 
 // Initiate Video
 // Let user choose picture file
 // or take selfie
 // Choose difficulty or let it at 1 - 1x10 pcs => 4 means 40 pcs.
 // Press Generate puzzle
-//  GENERATION: 
-// 1) Take picture and divide it into difficultyx10 
+//  GENERATION:
+// 1) Take picture and divide it into difficultyx10
 // 2) Assign id to each p and randomize
 // 3) Set drag
-// 4) Set drop to exchange pcs 
+// 4) Set drop to exchange pcs
 // 5) You win message!

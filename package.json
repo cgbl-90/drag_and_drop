@@ -2,7 +2,7 @@
   "name": "drag_and_drop",
   "version": "1.0.0",
   "description": "This is a puzzle game developed in Javascript. Main feature - drag and drop pictures",
-  "main": "index.html",
+  "main": "./src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
