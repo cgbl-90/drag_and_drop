@@ -50,3 +50,15 @@ function updateCanvas() {
 }
 
 initStream();
+
+// Initiate Video
+// Let user choose picture file
+// or take selfie
+// Choose difficulty or let it at 1 - 1x10 pcs => 4 means 40 pcs.
+// Press Generate puzzle
+//  GENERATION: 
+// 1) Take picture and divide it into difficultyx10 
+// 2) Assign id to each p and randomize
+// 3) Set drag
+// 4) Set drop to exchange pcs 
+// 5) You win message!
